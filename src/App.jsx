@@ -1,3 +1,20 @@
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import { Switch, Route } from 'react-router-dom';
+
+
+function App() {
+    return (
+        <div className="App">
+            <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/about" exact component={About} />
+                <Route path="/list" exact component={List} />
+            </Switch>
+        </div>
+    );
+}
+
+
 class App extends Component {
     state = { }
 
