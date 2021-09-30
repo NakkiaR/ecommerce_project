@@ -1,14 +1,19 @@
+import React from "react";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import { Switch, Route } from 'react-router-dom';
+    
 
 
 function App() {
     return (
         <div className="App">
+            <NavBar />
             <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/about" exact component={About} />
                 <Route path="/list" exact component={List} />
+                {/* create props route path here */}
+                {/* create redirect here route path here */}
             </Switch>
         </div>
     );
