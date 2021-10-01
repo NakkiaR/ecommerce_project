@@ -4,14 +4,14 @@ import axios from 'axios';
 
 class RegisterUser extends Component {
     state = {
-        user: {
-        firstName: 'Mark',
-        lastName: 'Markos',
-        userName: 'mmarkos',
+        
+        firstName: 'mark2',
+        lastName: 'Markos2',
+        userName: 'mmarkos2',
         password: 'abcde12345',
-        email: 'mm@gmail.com',        
-        phoneNumber: '333-333-3333'
-        }
+        email: 'mm2@gmail.com',        
+        phoneNumber: '333-333-3332'
+        
     }
 
     
@@ -19,18 +19,6 @@ class RegisterUser extends Component {
 
     // }
 
-
-    handleChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    };
-    handleSubmit = (event) => {
-        event.prevenetDefault();
-        alert(`First Name: ${this.state.firstName} Last Name: ${this.state.lastName}`)  // add the other RegisterUser states objects?
-        //TODO: call registerUser
-        this.registerUser();
-    };
     registerUser =async () =>{
         //console.log();
        let response = await axios.post('https://localhost:44394/api/authentication', this.state.user)
@@ -49,6 +37,20 @@ class RegisterUser extends Component {
             //console.log(this.state.user);
 
           }
+
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    };
+    handleSubmit = (event) => {
+        event.prevenetDefault();
+        alert(`First Name: ${this.state.firstName} Last Name: ${this.state.lastName}`)  // add the other RegisterUser states objects?
+        //TODO: call registerUser
+        this.registerUser();
+    };
+   
         
 
     render(){
