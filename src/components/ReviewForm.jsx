@@ -6,7 +6,7 @@ class ReviewForm extends Component {
   constructor(props) {
       super(props);
       this.state = {
-          reviewId: '5',  
+          reviewId: '6',  
           name: '',
           productName: '',  
           comment: '',
