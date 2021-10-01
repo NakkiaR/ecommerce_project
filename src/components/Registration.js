@@ -39,10 +39,7 @@ class RegisterUser extends Component {
             console.log(tokenFromStorage);
 
             window.location = "/";
-
-           
-            
-              
+     
 
           }
 
