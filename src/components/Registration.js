@@ -4,13 +4,14 @@ import axios from 'axios';
 
 class RegisterUser extends Component {
     state = {
-        
-        firstName: 'mark2',
-        lastName: 'Markos2',
-        userName: 'mmarkos2',
+        user : {
+        firstName: 'mark4',
+        lastName: 'Markos4',
+        userName: 'mmarkos4',
         password: 'abcde12345',
-        email: 'mm2@gmail.com',        
-        phoneNumber: '333-333-3332'
+        email: 'mm4@gmail.com',        
+        phoneNumber: '333-333-3330'
+        }
         
     }
 
@@ -20,6 +21,11 @@ class RegisterUser extends Component {
     // }
 
     registerUser =async () =>{
+
+        let user = {
+
+        }
+
         //console.log();
        let response = await axios.post('https://localhost:44394/api/authentication', this.state.user)
         
@@ -30,11 +36,13 @@ class RegisterUser extends Component {
              localStorage.setItem('token' , response.token);
              const tokenFromStorage = localStorage.getItem('token');
             // localStorage.removeItem('token');
+            console.log(tokenFromStorage);
+
             window.location = "/";
 
            
             
-            //console.log(this.state.user);
+              
 
           }
 
@@ -45,8 +53,8 @@ class RegisterUser extends Component {
         })
     };
     handleSubmit = (event) => {
-        event.prevenetDefault();
-        alert(`First Name: ${this.state.firstName} Last Name: ${this.state.lastName}`)  // add the other RegisterUser states objects?
+        event.preventDefault();
+        alert(`First Name: ${this.state.user.firstName} Last Name: ${this.state.user.lastName}`)  // add the other RegisterUser states objects?
         //TODO: call registerUser
         this.registerUser();
     };
@@ -58,17 +66,17 @@ class RegisterUser extends Component {
             <React.Fragment>
             <form onSubmit={(event) => this.handleSubmit(event)}>
                 <label>First Name</label>
-                <input type="text" name="firstName"onChange={this.handleChange} value={this.state.firstName}/>
+                <input type="text" name="firstName"onChange={this.handleChange} value={this.state.user.firstName}/>
                 <label>Last Name</label>
-                <input type="text" name="lastName"onChange={this.handleChange} value={this.state.lastName}/>
+                <input type="text" name="lastName"onChange={this.handleChange} value={this.state.user.lastName}/>
                 <label>User Name</label>
-                <input type="text" name="userName"onChange={this.handleChange} value={this.state.userName}/>
+                <input type="text" name="userName"onChange={this.handleChange} value={this.state.user.userName}/>
                 <label>Email</label>
-                <input type="text" name="email"onChange={this.handleChange} value={this.state.email}/>
+                <input type="text" name="email"onChange={this.handleChange} value={this.state.user.email}/>
                 <label>Password</label>
-                <input type="text" name="password"onChange={this.handleChange} value={this.state.password}/>
+                <input type="text" name="password"onChange={this.handleChange} value={this.state.user.password}/>
                 <label>Phone Number</label>
-                <input type="text" name="phoneNumber"onChange={this.handleChange} value={this.state.phoneNumber}/>  
+                <input type="text" name="phoneNumber"onChange={this.handleChange} value={this.state.user.phoneNumber}/>  
                 <button type="submit">Register</button>
             </form>
             </React.Fragment>
