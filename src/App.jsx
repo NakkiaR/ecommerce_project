@@ -1,3 +1,4 @@
+
 import React from 'react';
 //import {Switch, Route} from 'react-router-dom';
 import jwt_decode from "jwt-decode";
@@ -20,6 +21,7 @@ class App extends React.Component {
             }
         
          }
+
 
     componentDidMount() {
         const jwt = localStorage.getItem('token');
