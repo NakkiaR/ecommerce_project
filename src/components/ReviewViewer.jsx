@@ -10,6 +10,8 @@ const ProductViewer = (props) => {
             <div className="col-md-4">
                 {props.reviews.map(item =>
                    <tr key={item.reviewId}>
+                       <td>{item.name}</td>
+                       <td>{item.productName}</td>
                        <td>{item.comment}</td>
                        <td>{item.rating}</td>
                    </tr> 

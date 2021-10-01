@@ -6,11 +6,11 @@ class ReviewForm extends Component {
   constructor(props) {
       super(props);
       this.state = {
-          reviewId: '6',  
+          reviewId: '',  
           name: '',
           productName: '',  
           comment: '',
-          rating: 0
+          rating: ''
       }
   }
   handleChange = (event) => {
@@ -18,12 +18,18 @@ class ReviewForm extends Component {
         [event.target.name] : event.target.value
     })
   }
-  handleSubmit = (event) => {
-    event.preventDefault();
+  handleSubmit = () => {
     console.log("post",this.state)
     axios.post('https://localhost:44394/api/review',this.state)
-    
   }
+    
+  handleClick (){
+    const min = 1;
+    const max = 99999;
+    const rand = min + Math.floor(Math.random() * (max- min));
+    this.setState({ reviewId: this.state.reviewId + rand})
+  }
+
   render() { 
     return (
       <center>
@@ -37,7 +43,7 @@ class ReviewForm extends Component {
                 <input className="color" type="text" name="comment" onChange={this.handleChange} />
                 <label className="font">Rating: </label>
                 <input className="color" type="number" min="1" max="5" name="rating" onChange={this.handleChange} />
-                <button type="submit" className="btn btn-primary">Add Review</button>
+                <button type="submit" className="btn btn-primary" onClick={this.handleClick.bind(this)}>Add Review</button>
             </form>
             </center>
         // <form onSubmit={this.handleSubmit} >
