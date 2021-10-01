@@ -6,6 +6,8 @@ import Home from './components/Home';
 import NavigationBar from './components/NavBar';
 
 
+ 
+
 
 
 // function App() {
@@ -24,8 +26,19 @@ import NavigationBar from './components/NavBar';
 // }
 
 
-class App extends Component {
-    state = { }
+class App extends React.Component {
+    state = {
+        user: {
+        //     firstName: 'Mark2',
+        //     lastName: 'Markos2',
+        //     userName: 'mmarkos2',
+        //     password: 'abcde12345',
+        //     email: 'mm2@gmail.com',        
+        //     phoneNumber: '333-333-3334'
+            }
+        
+         }
+
 
     // componentDidMount() {
     //     const jwt = localStorage.getItem('token');
@@ -40,10 +53,10 @@ class App extends Component {
     // }
 
 render() {
-    const user = this.state.user;
+    //const user = this.state.user;
     return (
         <div>
-            <NavigationBar user={user} />
+            {/* <NavigationBar user={user} /> */}
             <Home />
             
             <div>
@@ -67,6 +80,7 @@ render() {
         </div>                
     );
 }
+
 }
 
 export default App;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Reviews from './Reviews';
 import Product from './Product';
 import ReviewForm from './ReviewForm';
 import ReviewViewer from './ReviewViewer'
