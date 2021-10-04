@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, NavLink, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, NavLink, Switch, Redirect } from 'react-router-dom'
 import React, { Component } from 'react';
 //import { Link, Switch, Route } from 'react-router';
 import NavBar from './components/NavBar';
@@ -10,6 +10,8 @@ import Home from './components/Home';
 import CreateProduct from './components/CreateProduct';
 import ReviewForm from './components/ReviewForm';
 import Product from './components/Product';
+import ShoppingCart from './components/ShoppingCart';
+
 
 export default class App extends Component {
 
@@ -59,6 +61,14 @@ export default class App extends Component {
               <Route exact path="/createproduct" component={CreateProduct} user={this.state.user}/>
               <Route exact path="/createreview" component={ReviewForm} user={this.state.user}/>
               <Route path="/product" render={props => <Product {...props} user={this.state.user}/>} />
+              <Route path="/shoppingcart" render={props => {
+                if (!this.state.user) {
+                  return <Redirect to='/login' />;
+                } else {
+                  return <ShoppingCart {...props} user={this.state.user} />
+                }
+              }}
+              /> 
             </Switch>
           </div>
         </BrowserRouter>
