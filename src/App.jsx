@@ -9,6 +9,7 @@ import jwt_decode from "jwt-decode";
 import Home from './components/Home';
 import CreateProduct from './components/CreateProduct';
 import ReviewForm from './components/ReviewForm';
+import Product from './components/Product';
 
 export default class App extends Component {
 
@@ -16,43 +17,53 @@ export default class App extends Component {
       user:{}
 
    };
+  
 
-
+   
   componentDidMount() {
-
+    
     
       const jwt = localStorage.getItem('token');
       try{
       const user = jwt_decode(jwt);  
-          
-               
-               this.setState({
-                  user
-              });                     
-       
+          this.setState({
+            user: user
+            
+          });                     
+
               }catch {
          
        }
       }
+      
 
-  render() {    
-    return (
+  render() { 
+    console.log("token", this.state.user)
+    if (this.state.user === {}) {
+      return (
+        <React.Fragment>
+          <h1>Loading...</h1>
+        </React.Fragment>
+      )
+      } else {
+        return (
         <BrowserRouter>
-      <div className="App">
-        
+          <div className="App">
+            
             <NavBar user = {this.state.user}/>
             <Switch>
               <Route exact path="/"  component={()=><LandingPage user = {this.state.user}/>}/>
               <Route exact path="/registration"  component={Registration}/>
               <Route exact path="/login"  component={Login}/>
-              <Route exact path="/home"  component={Home} user={this.state.user}/>              
+              <Route path="/home"  render={props => <Home {...props} user={this.state.user}/>} />              
               <Route exact path="/createproduct" component={CreateProduct} user={this.state.user}/>
               <Route exact path="/createreview" component={ReviewForm} user={this.state.user}/>
-
+              <Route path="/product" render={props => <Product {...props} user={this.state.user}/>} />
             </Switch>
           </div>
-          </BrowserRouter>
+        </BrowserRouter>
       
-    );
+        );
+    }
   }
 }
