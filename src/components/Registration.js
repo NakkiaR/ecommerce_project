@@ -5,12 +5,12 @@ import axios from 'axios';
 class RegisterUser extends Component {
     state = {
         
-        firstName: 'mark7',
-        lastName: 'Markos7',
-        userName: 'mmarkos7',
-        password: 'abcde1234567',
-        email: 'mm7@gmail.com',        
-        phoneNumber: '333-333-3337'
+        firstName: '',
+        lastName: '',
+        userName: '',
+        password: '',
+        email: '',        
+        phoneNumber: ''
         
         
     }

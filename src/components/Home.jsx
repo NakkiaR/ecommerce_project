@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Product from './Product';
-import ReviewForm from './ReviewForm';
+import NavBar from './NavBar';
 import ReviewViewer from './ReviewViewer'
-import CreateProduct from './CreateProduct';
+
 
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = { 
+            token: props.user,
             products: [],
             reviews: [],
             product: []
@@ -58,12 +59,8 @@ class Home extends Component {
         } else {
         return ( 
             <React.Fragment>
-                <div>Hello World!</div> 
-                {/* <NavBar /> */}
-                <Product products={this.state.products} />
-                <ReviewForm />
+                <Product products={this.state.products} user={this.state.token}/>
                 <ReviewViewer reviews={this.state.reviews}/>
-                <CreateProduct />
             </React.Fragment>
          );
     }

@@ -28,6 +28,8 @@ import { Link } from 'react-router-dom';
                 
                 <ul>  
                 <Link to='/home'> <li>Home</li> </Link> 
+                <Link to='/createproduct'> <li>List a Star</li> </Link>
+                <Link to='/createreview'> <li>Review a Star</li> </Link>
                 <Link to={'/'} onClick={()=> this.handleLogout() } > <li>  Logout </li> </Link> 
                                   
                 </ul>

@@ -7,6 +7,9 @@ import Login from './components/Login';
 import LandingPage from './components/LandingPage';
 import jwt_decode from "jwt-decode";
 import Home from './components/Home';
+import CreateProduct from './components/CreateProduct';
+import ReviewForm from './components/ReviewForm';
+
 export default class App extends Component {
 
   state= {
@@ -42,8 +45,10 @@ export default class App extends Component {
               <Route exact path="/"  component={()=><LandingPage user = {this.state.user}/>}/>
               <Route exact path="/registration"  component={Registration}/>
               <Route exact path="/login"  component={Login}/>
-              <Route exact path="/home"  component={Home}/>              
-             
+              <Route exact path="/home"  component={Home} user={this.state.user}/>              
+              <Route exact path="/createproduct" component={CreateProduct} user={this.state.user}/>
+              <Route exact path="/createreview" component={ReviewForm} user={this.state.user}/>
+
             </Switch>
           </div>
           </BrowserRouter>
