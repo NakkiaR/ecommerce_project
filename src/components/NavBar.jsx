@@ -1,60 +1,38 @@
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import React from 'react';
 
 
-// function NavBar() {
+  export default class NavBar extends Component {
 
-//     return(
-//         <nav>
-//             <ul>
-//                 <Link to='/'>
-//                     <li>Home</li>
-//                 </Link>
-//                 <Link to='/about'>
-//                     <li>About</li>
-//                 </Link>
-//                 <Link tp='/list'>
-//                     <li>List</li>
-//                 </Link>
-//             </ul>
-//         </nav>
-//     )
-// }
+    handleLogout=()=>{
+        localStorage.clear();
+        window.location = "/";
 
-// export default NavBar
+    }
+    render() { 
+                
+        if(this.props.user.username == null){
+            return (
+                
+                <ul> 
+                <h3> Welcome to Stars !</h3> 
+                <Link to='/registration'>  <li>  Register </li>   </Link> 
 
+                <Link to='/login' >  <li>  Login </li> </Link> 
+                </ul>               
+            )
 
-const NavigationBar = ({user}) => {
-    return (
-        <div>
-            {user && <h4>Welcome {user.username}</h4>}
-            <ul>
-                <li>
-                    <Link to='/'>Home</Link>
-                </li>
-                <li>
-                    <Link to='/profile'>Profile</Link>
-                </li>
-                {!user &&
-                    <React.Fragment>
-                        <li>
-                            <Link to='/register'>Register</Link>
-                        </li>
-                        <li>
-                            <Link to='/login'>Login</Link>
-                        </li>
-                    </React.Fragment>
-                }
-                {user &&
-                    <React.Fragment>
-                        <li>
-                            <Link to='/logout'>Logout</Link>
-                        </li>
-                    </React.Fragment>
-                }
-            </ul>
-        </div>
-    );
+        }else{
+        
+            return (
+                
+                <ul>  
+                <Link to='/home'> <li>Home</li> </Link> 
+                <Link to={'/'} onClick={()=> this.handleLogout() } > <li>  Logout </li> </Link> 
+                                  
+                </ul>
+
+            );
+        }      
+    }
 }
-
-export default NavigationBar;
