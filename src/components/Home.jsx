@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Product from './Product';
 import ReviewForm from './ReviewForm';
-import ReviewViewer from './ReviewViewer';
-
+import ReviewViewer from './ReviewViewer'
+import CreateProduct from './CreateProduct';
 
 
 class Home extends Component {
@@ -63,6 +63,7 @@ class Home extends Component {
                 <Product products={this.state.products} />
                 <ReviewForm />
                 <ReviewViewer reviews={this.state.reviews}/>
+                <CreateProduct />
             </React.Fragment>
          );
     }
