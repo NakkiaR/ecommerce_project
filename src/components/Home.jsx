@@ -3,6 +3,7 @@ import axios from 'axios';
 import Product from './Product';
 import NavBar from './NavBar';
 import ReviewViewer from './ReviewViewer'
+import SearchBar from './SearchBar';
 
 
 
@@ -62,6 +63,7 @@ class Home extends Component {
             <React.Fragment>
                 <Product products={this.state.products} user={this.state.token}/>
                 <ReviewViewer reviews={this.state.reviews}/>
+                <SearchBar/>
             </React.Fragment>
          );
     }

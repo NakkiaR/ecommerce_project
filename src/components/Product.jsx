@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Product.css'
 
+
 const Product = (props) => {
     console.log('Props', props.products)
 
@@ -25,7 +26,7 @@ const Product = (props) => {
     }
 
     return (
-        <div className="container">
+        <div className="products">
            {props.products.map(item =>
             <tr key={item.productId} className="container">
                 <td><h1>{item.name}</h1></td>

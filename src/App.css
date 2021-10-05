@@ -1,9 +1,10 @@
-App {      
+/* App {      
     text-align: center;      
   }      
   .navheader{      
     margin-top: 10px;      
-    color :black !important;      
+    color :rgb(231, 125, 125) !important;    
+    
     background-color: #b3beca!important      
   }    
     
@@ -11,5 +12,18 @@ App {
   {      
     margin-top: 10px;      
     margin-bottom: 10px;      
-    color :black !important;      
-  }    
+    color :rgb(177, 159, 159) !important;      
+  }   */
+  
+  body {
+    background-color: #a9bfec;
+    color: rgb(44, 39, 39);
+    padding: 40px;
+    font-family: Arial;
+    text-align: center;
+  }
+  ul {
+    list-style-type: none;
+
+   
+  }
