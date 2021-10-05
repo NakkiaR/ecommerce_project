@@ -11,6 +11,7 @@ import CreateProduct from './components/CreateProduct';
 import ReviewForm from './components/ReviewForm';
 import Product from './components/Product';
 import ShoppingCart from './components/ShoppingCart';
+import ReviewViewer from './components/ReviewViewer';
 
 
 export default class App extends Component {

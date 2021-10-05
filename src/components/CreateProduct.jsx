@@ -9,7 +9,7 @@ class CreateProduct extends Component {
       super(props);
       this.state = {
           productId: '',
-          productName: '',  
+          name: '',  
           description: '',
           price: '',
           categoryId: ''
@@ -22,8 +22,9 @@ class CreateProduct extends Component {
   }
   handleSubmit = (event) => {
     event.preventDefault();
+    const jwt = localStorage.getItem('token');
     console.log("post",this.state)
-    axios.post('https://localhost:44394/api/product',this.state) 
+    axios.post('https://localhost:44394/api/product',this.state, { headers: {Authorization: 'Bearer ' + jwt}}) 
   }
     
   handleClick (){
@@ -40,7 +41,7 @@ class CreateProduct extends Component {
             <form onSubmit={this.handleSubmit} className="container">
                 <h2>Add A Product</h2>
                 <label className="font">Product Name: </label>
-                <input className="color" type="text" name="productName" onChange={this.handleChange} />
+                <input className="color" type="text" name="name" onChange={this.handleChange} />
                 <label className="font">Description: </label>
                 <input className="color" type="text" name="description" onChange={this.handleChange} />
                 <label className="font">Price: </label>
