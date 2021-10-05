@@ -14,13 +14,24 @@ import { Link } from 'react-router-dom';
                 
         if(this.props.user.username == null){
             return (
-                
-                <ul > 
-                <h3> Welcome to Stars !</h3> 
-                <Link to='/registration'>  <li>  Register </li>   </Link> 
 
-                <Link to='/login' >  <li>  Login </li> </Link> 
-                </ul>               
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a className="navbar-brand" href="/registraion">Registraion</a>              
+                <div className="collapse navbar-collapse" id="navbarNav">
+                  <ul className="navbar-nav">
+                    <li className="nav-item active">
+                      <a className="nav-link" href="/login">Login</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+                
+                // <ul > 
+                // <h3> Welcome to Stars !</h3> 
+                // <Link to='/registration'>  <li>  Register </li>   </Link> 
+
+                // <Link to='/login' >  <li>  Login </li> </Link> 
+                // </ul>               
             )
 
         }else{

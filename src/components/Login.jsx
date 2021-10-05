@@ -48,7 +48,7 @@ class Login extends Component {
         }
         return(
             <React.Fragment>
-            <form onSubmit={(event) => this.handleSubmit(event)}>
+            <form onSubmit={(event) => this.handleSubmit(event)} className="container">
                
                 <label>User Name</label>
                 <input type="text" name="userName"onChange={this.handleChange} value={this.state.userName}/>

@@ -15,7 +15,7 @@
     color :rgb(177, 159, 159) !important;      
   }   */
   
-  body {
+  /* body {
     background-color: #a9bfec;
     color: rgb(44, 39, 39);
     padding: 40px;
@@ -26,4 +26,24 @@
     list-style-type: none;
 
    
-  }
+  } */
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 1px auto;
+    align-items: center;
+    border: 1em solid black;
+    padding: 1em;
+    background-color: rgba(245, 245, 245, 0.664);
+    /* opacity: 0.5; */
+
+}
+
+input {
+  background-color: rgba(245, 245, 245, 0.664);
+}
+
+button {
+  opacity: 0.5;
+}

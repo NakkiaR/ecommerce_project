@@ -49,7 +49,7 @@ class RegisterUser extends Component {
     render(){
         return(
             <React.Fragment>
-            <form onSubmit={(event) => this.handleSubmit(event)}>
+            <form onSubmit={(event) => this.handleSubmit(event)} className="container">
                 <label>First Name</label>
                 <input type="text" name="firstName"onChange={this.handleChange} value={this.state.firstName}/>
                 <label>Last Name</label>

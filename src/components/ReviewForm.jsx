@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 
+
 class ReviewForm extends Component {
   constructor(props) {
       super(props);
@@ -33,7 +34,7 @@ class ReviewForm extends Component {
   render() { 
     return (
       <center>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className= "container">
                 <h2>Add A Review</h2>
                 <label className="font">Your Name: </label>
                 <input className="color" type="text" name="name" onChange={this.handleChange} />

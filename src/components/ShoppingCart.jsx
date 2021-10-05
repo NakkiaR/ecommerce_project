@@ -30,7 +30,7 @@ const ShoppingCart = (props) => {
         <React.Fragment>
             <h1>Your Shopping Cart</h1>
             {cart.map(item =>
-            <tr key={item.product.productId}>
+            <tr key={item.product.productId} className="container">
                 <td><h1>{item.product.name}</h1></td>
                 <td>${item.product.price}.00</td>
                 <button type="button" className="btn btn-dark" onClick={() =>deleteFromCart(item.shoppingCartId)} >

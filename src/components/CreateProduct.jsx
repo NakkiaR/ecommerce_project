@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import '../App.css'
+
+
+
 class CreateProduct extends Component {
   constructor(props) {
       super(props);
@@ -33,7 +37,7 @@ class CreateProduct extends Component {
   render() { 
     return (
       <center>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className="container">
                 <h2>Add A Product</h2>
                 <label className="font">Product Name: </label>
                 <input className="color" type="text" name="productName" onChange={this.handleChange} />
