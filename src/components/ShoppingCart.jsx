@@ -7,6 +7,7 @@ const ShoppingCart = (props) => {
     const [cart, setCart] = useState([])
     const [uId, setUId] = useState(props.user.id)
     console.log("cart",cart)
+    console.log("userId", uId)
     async function getCartItems () {
         const jwt = localStorage.getItem('token');
         let response = await axios.get(`https://localhost:44394/api/shoppingcart/${uId}`, { headers: {Authorization: 'Bearer ' + jwt}})
@@ -27,10 +28,10 @@ const ShoppingCart = (props) => {
 
 
     return (
-        <React.Fragment>
+        <div className="container">
             <h1>Your Shopping Cart</h1>
             {cart.map(item =>
-            <tr key={item.product.productId} className="container">
+            <tr key={item.product.productId} className="container" >
                 <td><h1>{item.product.name}</h1></td>
                 <td>${item.product.price}.00</td>
                 <button type="button" className="btn btn-dark" onClick={() =>deleteFromCart(item.shoppingCartId)} >
@@ -38,7 +39,7 @@ const ShoppingCart = (props) => {
                 </button>
             </tr>
             )} 
-        </React.Fragment>
+        </div>
 
     )
 

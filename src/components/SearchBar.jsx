@@ -36,7 +36,7 @@ class SearchBar extends React.Component {
     render(){
         return(
         // <nav className="navbar navbar-light bg-light">
-            <div className="container-fluid">
+            <div className="container">
              <form className="p-2 w-100 bd-highlight" onSubmit={this.handleSubmit}>
                   <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={this.handleChange} name='searchTerm' value={this.state.searchTerm}/>
                   <div className="p-2 flex-shrink-1 bd-highlight">
