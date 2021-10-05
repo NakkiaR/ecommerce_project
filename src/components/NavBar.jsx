@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
         if(this.props.user.username == null){
             return (
                 
-                <ul> 
+                <ul > 
                 <h3> Welcome to Stars !</h3> 
                 <Link to='/registration'>  <li>  Register </li>   </Link> 
 

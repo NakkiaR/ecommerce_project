@@ -9,6 +9,7 @@ import jwt_decode from "jwt-decode";
 import Home from './components/Home';
 import CreateProduct from './components/CreateProduct';
 import ReviewForm from './components/ReviewForm';
+import './App.css';
 
 export default class App extends Component {
 

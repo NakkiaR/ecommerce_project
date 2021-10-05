@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+
 const Product = (props) => {
     console.log('Props', props.products)
 
@@ -36,7 +37,7 @@ const Product = (props) => {
     
 
     return (
-        <div>
+        <div className="products">
            {props.products.map(item =>
             <tr key={item.productId}>
                 <td><h1>{item.name}</h1></td>
