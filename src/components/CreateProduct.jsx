@@ -44,9 +44,9 @@ class CreateProduct extends Component {
                 <div>
                     <label>Category</label>
                 <select id="dropdown" name="categoryId" onChange={this.handleChange}>
-                    <option value="1">Zodiac</option>
-                    <option value="2">Traditional Star</option>
-                    <option value="3">Double Star</option>
+                    <option value="Zodiac">Zodiac</option>
+                    <option value="Traditional Star">Traditional Star</option>
+                    <option value="Double Star">Double Star</option>
                 </select>
                 </div>        
                 {/* <label className="font">Rating: </label>

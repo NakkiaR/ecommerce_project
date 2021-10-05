@@ -16,6 +16,7 @@ class Home extends Component {
             reviews: [],
             product: []
          }
+         console.log("user",props.user)
     }
 
     
@@ -25,7 +26,7 @@ class Home extends Component {
         this.getAllReviews();
         this.getSpecificProduct();
         
-    }
+    } 
 
     async getAllProducts() {
         let response = await axios.get('https://localhost:44394/api/product');

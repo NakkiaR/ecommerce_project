@@ -6,35 +6,23 @@ import axios from 'axios';
 const Product = (props) => {
     console.log('Props', props.products)
 
-    const [tempProduct, setTempProduct] = useState();
-    const [scId, setScId] = useState(); 
-    const [uId, setUId] = useState(props.id);
+    const [uId, setUId] = useState(props.user.id);
+    console.log("uId", props)
     
-    const handleChange = (event, item) => {
-        event.preventDefault();
+    async function addToCart (item) 
+    {
+        let id = item.productId
+        let info = {
+            ProductId : id,
+            IdentityUserId : uId
+        }
+        console.log("info", info)
+        let response = await axios.post('https://localhost:44394/api/shoppingcart', info)
+        alert({item} + "added to cart")
+        console.log("response", response)
+
         
-        handleClick();
-        addToCart(scId, tempProduct.productId, uId);
     }
-    
-
-    function addToCart (scId, pId, uId) 
-    {
-        let response = axios.post('https://localhost:44394/api/shoppingcart', props.user, scId, pId, uId)
-
-
-    }
-
-    function handleClick () 
-    {
-        const min = 1;
-        const max = 99999;
-        const rand = min + Math.floor(Math.random() * (max- min));
-        setScId(rand)
-      }
-
-      
-    
 
     return (
         <div className="products">
@@ -43,7 +31,7 @@ const Product = (props) => {
                 <td><h1>{item.name}</h1></td>
                 <td>{item.description}</td>
                 <td>${item.price}.00</td>
-                <button fluid className="add-button" onClick={handleChange }>
+                <button fluid className="add-button" onClick={() =>addToCart(item)} >
                     Add to Cart 
                 </button>
             </tr>

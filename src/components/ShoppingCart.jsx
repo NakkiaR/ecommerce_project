@@ -1,40 +1,46 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css'
 
-function ShoppingCart() {
-    const commerce = new Commerce(process.env.REACT_APP_PUBLICKEY_SANDBOX)
 
-    const [cart, setCart] = useState()
+const ShoppingCart = (props) => {
+    const [cart, setCart] = useState([])
+    const [uId, setUId] = useState(props.user.id)
+    console.log("cart",cart)
+    async function getCartItems () {
+        const jwt = localStorage.getItem('token');
+        let response = await axios.get(`https://localhost:44394/api/shoppingcart/${uId}`, { headers: {Authorization: 'Bearer ' + jwt}})
+            .then(response => setCart(response.data))
+        }
 
-    useEffect(() => {
-        commerce.cart.retrieve()
-        .then(res => {
-            setCart(res)
-        })
-    },[])
+        const deleteFromCart = (item) => {
+            console.log("item", item)
+            const jwt = localStorage.getItem('token');
+            axios.delete(`https://localhost:44394/api/shoppingcart/delete/${item}`, { headers: {Authorization: 'Bearer ' + jwt}})
+            alert("Delete Successfull")
+            
+        }
+        
+        useEffect(() => {
+            getCartItems();
+        },[])
 
-    const addToCart = (productId) => {
-        commerce.cart.add(productId, 1)
-        .then(res => {
-            setCart(res.cart)
-        })
-    }
 
     return (
-        <div className="ShoppingCart">
-            <Nav cart={cart} emptyCart={emptyCart}/>
-            <div centered stackable padded relaxed>
-                <div className="left-column" width={5}>
-                
-                </div>
-                <div width={9}>
-                    <ProductContainer
-                        addToCart={addToCart}
-                    />    
-                </div>
-            </div>
-        </div>
-    );
+        <React.Fragment>
+            {cart.map(item =>
+            <tr key={item.productId}>
+                <td><h1>{item.name}</h1></td>
+                <td>${item.price}.00</td>
+                <button fluid className="add-button" onClick={() =>deleteFromCart(item.productId)} >
+                    Delete from Cart 
+                </button>
+            </tr>
+            )} 
+        </React.Fragment>
+
+    )
+
 }
 
 export default ShoppingCart;
