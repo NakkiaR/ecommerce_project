@@ -43,7 +43,7 @@ class ReviewForm extends Component {
                 <input className="color" type="text" name="comment" onChange={this.handleChange} />
                 <label className="font">Rating: </label>
                 <input className="color" type="number" min="1" max="5" name="rating" onChange={this.handleChange} />
-                <button type="submit" className="btn btn-primary" onClick={this.handleClick.bind(this)}>Add Review</button>
+                <button type="submit" className="btn btn-dark" onClick={this.handleClick.bind(this)}>Add Review</button>
             </form>
             </center>
         // <form onSubmit={this.handleSubmit} >

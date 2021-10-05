@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Product.css'
 
 const Product = (props) => {
     console.log('Props', props.products)
@@ -24,13 +25,13 @@ const Product = (props) => {
     }
 
     return (
-        <div>
+        <div className="container">
            {props.products.map(item =>
-            <tr key={item.productId}>
+            <tr key={item.productId} className="container">
                 <td><h1>{item.name}</h1></td>
                 <td>{item.description}</td>
                 <td>${item.price}.00</td>
-                <button fluid className="add-button" onClick={() =>addToCart(item)} >
+                <button type="button" className="btn btn-dark" onClick={() =>addToCart(item)} >
                     Add to Cart 
                 </button>
             </tr>

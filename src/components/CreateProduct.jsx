@@ -51,7 +51,7 @@ class CreateProduct extends Component {
                 </div>        
                 {/* <label className="font">Rating: </label>
                 <input className="color" type="number" min="1" max="5" name="rating" onChange={this.handleChange} /> */}
-                <button type="submit" className="btn btn-primary" onClick={this.handleClick.bind(this)}>Add Product</button>
+                <button type="submit" className="btn btn-dark" onClick={this.handleClick.bind(this)}>Add Product</button>
             </form>
             </center>
      

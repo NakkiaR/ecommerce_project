@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 1px auto;
+    align-items: center;
+    border: 1em solid black;
+    padding: 1em;
+    background-color: whitesmoke;
+    opacity: 0.5;
+    color:blanchedalmond;
+}
